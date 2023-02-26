@@ -3,9 +3,11 @@ import argparse
 import locale
 import struct
 import time
+import numpy as np
+import colour.algebra.interpolation as ci
 from dataclasses import dataclass
-from .cgats import CGATS
-from .edr import (
+from cgats import CGATS
+from edr import (
     EDRHeader,
     EDRDisplayDataHeader,
     EDRSpectralDataHeader,
@@ -62,6 +64,20 @@ class SpectralData:
                 # convert from mW/nm/m^2 to W/nm/m^2
                 float(val) / 1000.0 for val in data[skip_fields:]
             ])
+
+        #Interpolate to 1nm using CIE recommended Sprague (1880) method
+        if space_nm > 1:
+            setsi = []
+            x = np.arange(start_nm, end_nm + 1, space_nm)
+            xi = np.arange(start_nm, end_nm + 1, 1)
+            for set in sets:
+                y = np.array(set)
+                si = ci.SpragueInterpolator(x, y)
+                yi = si(xi)
+                setsi.append(yi.tolist())
+            space_nm = 1
+            num_bands = end_nm - start_nm + 1
+            sets = setsi
 
         return SpectralData(start_nm, end_nm, space_nm, norm, num_bands,
                             num_sets, sets)
