@@ -11,10 +11,9 @@ for your specific device (for example, from the [DisplayCAL corrections
 database](https://colorimetercorrections.displaycal.net/)) and replacing the
 generic EDR should yield better results.
 
+A Sprague (1880) interpolation to 1nm spacing is performed on .ccss with spacing >1nm
+
 ## Usage
 
-1. Install Python 3.9+
-2. Install [Poetry](https://python-poetry.org/docs/#installation)
-3. Run `poetry install`
-4. Run `poetry run ccss2edr in.ccss out.edr` to convert the CCSS file `in.ccss`
+ccss2edr.py in.ccss out.edr` to convert the CCSS file `in.ccss`
    in the current working directory to `out.edr`
