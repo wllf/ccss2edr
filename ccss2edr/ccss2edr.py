@@ -76,7 +76,7 @@ class SpectralData:
                 yi = si(xi)
                 setsi.append(yi.tolist())
             space_nm = 1
-            num_bands = end_nm - start_nm + 1
+            num_bands = int(end_nm - start_nm + 1)
             sets = setsi
 
         return SpectralData(start_nm, end_nm, space_nm, norm, num_bands,
