@@ -17,3 +17,6 @@ A Sprague (1880) interpolation to 1nm spacing is performed on .ccss with spacing
 
 ccss2edr.py in.ccss out.edr` to convert the CCSS file `in.ccss`
    in the current working directory to `out.edr`
+
+ccss2csv.py in.ccss out.csv` to convert the CCSS file `in.ccss`
+   in the current working directory to `out.csv`
