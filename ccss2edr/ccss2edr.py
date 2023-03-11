@@ -69,6 +69,7 @@ class SpectralData:
         if space_nm > 1:
             setsi = []
             x = np.arange(start_nm, end_nm + 1, space_nm)
+            x[-1] = end_nm
             xi = np.arange(start_nm, end_nm + 1, 1)
             for set in sets:
                 y = np.array(set)
