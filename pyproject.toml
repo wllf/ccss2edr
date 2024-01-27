@@ -6,7 +6,9 @@ authors = ["Yegor Pomortsev <yegor@pomortsev.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = ">=3.9, <3.13"
+numpy = "^1.26.3"
+colour-science = "^0.4.4"
 
 [tool.poetry.dev-dependencies]
 
