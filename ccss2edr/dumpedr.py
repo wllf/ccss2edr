@@ -2,7 +2,7 @@
 import argparse
 import dataclasses
 from array import array
-from .edr import (EDRHeader, EDRDisplayDataHeader, EDRSpectralDataHeader)
+from edr import (EDRHeader, EDRDisplayDataHeader, EDRSpectralDataHeader)
 
 
 def parse_args():
